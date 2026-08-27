@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { EnvValidationError } from "../../src/core/errors";
+import { EnvValidationError } from "@/core/errors";
 
 describe("EnvValidationError", () => {
   it("formats an aggregated error without secret values", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pickClientEnv } from "../../src/index";
+import { pickClientEnv } from "@/index";
 
 describe("pickClientEnv", () => {
   const source = {
