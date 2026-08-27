@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Zod ${{ matrix.zod }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        zod:
+          - 3.24.2
+          - 4.4.3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm install --force --no-save --package-lock=false zod@${{ matrix.zod }}
+      - run: echo "[FIX] Running compatibility checks with Zod ${{ matrix.zod }}"
+      - run: npm run check

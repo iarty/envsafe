@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { createEnv, EnvValidationError } from "../../src/index";
-import type { SchemaAdapter } from "../../src/index";
+import { createEnv, EnvValidationError } from "@/index";
+import type { SchemaAdapter } from "@/index";
 
 interface TestSchema {
   readonly expected: string;
