@@ -22,6 +22,16 @@ const bundleClientEntry = async (
     configFile: false,
     root: projectRoot,
     resolve: {
+      alias: {
+        "@abarbonov/envsafe/zod": resolve(projectRoot, "src/adapters/zod.ts"),
+        "@abarbonov/envsafe/valibot": resolve(
+          projectRoot,
+          "src/adapters/valibot.ts",
+        ),
+        "@abarbonov/envsafe/node": resolve(projectRoot, "src/node/index.ts"),
+        "@abarbonov/envsafe": resolve(projectRoot, "src/index.ts"),
+        "@": resolve(projectRoot, "src"),
+      },
       conditions: ["browser"],
     },
     build: {
