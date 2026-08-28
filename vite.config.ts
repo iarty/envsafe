@@ -23,7 +23,7 @@ export default defineConfig({
         `${entryName}.${format === "es" ? "js" : "cjs"}`,
     },
     rollupOptions: {
-      external: ["dotenv", "valibot", "zod"],
+      external: [/^node:/, "dotenv", "valibot", "zod"],
     },
   },
   plugins: [

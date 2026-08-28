@@ -1,2 +1,6 @@
-// Node.js integration is added in feature/node-dotenv.
-export {};
+export { DotenvLoadError, loadDotenv } from "./load-dotenv";
+export type {
+  DotenvTarget,
+  LoadDotenvOptions,
+  LoadDotenvResult,
+} from "./load-dotenv";
