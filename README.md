@@ -75,7 +75,7 @@ new object:
 ```ts
 import { pickClientEnv } from "@abarbonov/envsafe";
 
-const clientEnv = pickClientEnv(env, {
+const clientEnv = pickClientEnv(process.env, {
   allow: ["API_URL"],
   prefixes: ["PUBLIC_"],
 });
@@ -83,6 +83,11 @@ const clientEnv = pickClientEnv(env, {
 
 Never import `@abarbonov/envsafe/node` from frontend code or pass the complete
 `process.env` object to a browser bundle. See [docs/client-exposure.md](docs/client-exposure.md).
+
+## Examples
+
+- [Zod validation and client allowlist](example/zod.ts)
+- [Valibot validation and client allowlist](example/valibot.ts)
 
 ## ESM and CommonJS
 
