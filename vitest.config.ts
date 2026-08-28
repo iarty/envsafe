@@ -9,6 +9,7 @@ export default defineConfig({
   },
   test: {
     include: ["tests/**/*.test.ts"],
+    fileParallelism: false,
     passWithNoTests: true,
   },
 });
