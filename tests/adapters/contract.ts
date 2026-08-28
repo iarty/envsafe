@@ -62,6 +62,15 @@ export const runAdapterContractTests = <TSchema>(
       expect(env).toEqual({ PORT: 3000, RETRIES: 3 });
     });
 
+    it("returns a frozen result after successful validation", () => {
+      const env = adapter.createEnv({
+        schema: { PORT: adapter.schemas.validPort() },
+        source: { PORT: "8080" },
+      });
+
+      expect(Object.isFrozen(env)).toBe(true);
+    });
+
     it("aggregates invalid variables without exposing secrets", () => {
       const secret = "database-password-must-not-leak";
       const error = getValidationError(() =>
