@@ -1,10 +1,10 @@
 # Client Exposure and Bundle Safety
 
-Treat browser configuration as an explicit allowlist. Validate server values
-on the server, then copy only values intended for the client:
+Treat browser configuration as an explicit allowlist. Copy only the raw source
+values intended for the client; validate server values separately on the server:
 
 ```ts
-const clientEnv = pickClientEnv(env, {
+const clientEnv = pickClientEnv(process.env, {
   allow: ["PUBLIC_API_URL"],
   prefixes: ["PUBLIC_"],
 });
